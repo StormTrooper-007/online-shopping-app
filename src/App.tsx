@@ -17,16 +17,16 @@ import {Product} from "./redux/types/addToCartTypes";
 function App() {
   const dispatch = useDispatch();
   const { query } = useSelector((state: rootState) => state.query);
-  //const { products } = useSelector((state: rootState) => state.products);
 
   const productObject = loadFromLocalStorage();
   const products:Product[] = productObject.products.products;
+  
 
 
 
   useEffect(() => {
-    dispatch(fetchApiAction());
-  }, [dispatch]);
+    loadFromLocalStorage()
+  }, []);
 
   function searching() {
     let result = products.filter((element) =>
