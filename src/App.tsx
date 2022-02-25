@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
    dispatch(fetchApiAction());
    loadFromLocalStorage();
-  }, [dispatch, loadFromLocalStorage]);
+  }, [dispatch]);
 
   function searching() {
     let result = products.filter((element) =>
