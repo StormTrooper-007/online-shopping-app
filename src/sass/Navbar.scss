@@ -1,0 +1,80 @@
+nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    
+      .nav__icon {
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        width: 3px;
+        height: 3px;
+        background-color: rgba(239, 249, 251, 0.63);
+        box-shadow: 0px 2px 18px -3px rgba(0, 0, 0, 0.32);
+      }
+    
+      .nav__cart__toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        .nav__cart {
+          border-radius: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+          width: 3px;
+          height: 3px;
+          margin-right: 48px;
+          background-color: rgba(239, 249, 251, 0.63);
+          box-shadow: 0px 2px 18px -3px rgba(0, 0, 0, 0.32);
+    
+          .nav__cart__badge {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            top: 1px;
+            border-radius: 100%;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin-left: 20px;
+            margin-top: 5px;
+          }
+    
+          .nav__cart__badgeD {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            top: 1px;
+            border-radius: 100%;
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            margin-left: 20px;
+            margin-top: 5px;
+          }
+        }
+    
+        .nav__toggle {
+          border-radius: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          width: 3px;
+          height: 3px;
+          background-color: rgba(239, 249, 251, 0.63);
+          box-shadow: 0px 2px 18px -3px rgba(0, 0, 0, 0.32);
+        }
+      }
+    }
+    
