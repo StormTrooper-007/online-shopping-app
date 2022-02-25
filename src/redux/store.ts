@@ -3,7 +3,6 @@ import thunk from "redux-thunk";
 import addToCartReducer from "./reducers/addToCartReducer";
 import fetchApireducer from "./reducers/fetchApiReducer";
 import queryReducer from "./reducers/queryReducer";
-import { Product } from "./types/addToCartTypes";
 
 export const composeEnhancer =
   (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
