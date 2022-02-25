@@ -13,23 +13,23 @@ const reducers = combineReducers({
   query: queryReducer,
 });
 
-function saveToLocalStorage(state: rootState) {
-  try {
-    const localStorageState = JSON.stringify(state);
-    localStorage.setItem("state", localStorageState);
-  } catch (e) {
-    console.log(e);
-  }
-}
+// function saveToLocalStorage(state: rootState) {
+//   try {
+//     const localStorageState = JSON.stringify(state);
+//     localStorage.setItem("state", localStorageState);
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
 
-export function loadFromLocalStorage() {
-  const localStorageState = localStorage.getItem("state");
-  if (localStorageState === null) return undefined;
-  return JSON.parse(localStorageState);
-}
+// export function loadFromLocalStorage() {
+//   const localStorageState = localStorage.getItem("state");
+//   if (localStorageState === null) return undefined;
+//   return JSON.parse(localStorageState);
+// }
 
 const store = createStore(reducers, composeEnhancer(applyMiddleware(thunk)));
-store.subscribe(() => saveToLocalStorage(store.getState()));
+// store.subscribe(() => saveToLocalStorage(store.getState()));
 
 export default store;
 
