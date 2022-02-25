@@ -5,16 +5,16 @@ import { rootState } from "../redux/store";
 import { Product } from "../redux/types/fetchAPITypes";
 import { useNavigate } from "react-router-dom";
 import { deleteItem } from "../redux/actions/addToCartActions";
-import { loadFromLocalStorage } from "../redux/store";
+//import { loadFromLocalStorage } from "../redux/store";
 
 export function Cart() {
   const dispatch = useDispatch();
-  let {mood} = useSelector((state: rootState) => state.cart);
+  let {mood, cart} = useSelector((state: rootState) => state.cart);
   const navigate = useNavigate();
 
 
-  const productObject = loadFromLocalStorage();
-  const cart = productObject.cart.cart
+  // const productObject = loadFromLocalStorage();
+  // const cart = productObject.cart.cart
 
   type Cart = {
     product: Product;
