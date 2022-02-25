@@ -11,16 +11,16 @@ import { Checkout } from "./pages/Checkout";
 import { Categories } from "./pages/Categories";
 import { Faq } from "./pages/Faq";
 import { Contact } from "./pages/Contact";
-//import {loadFromLocalStorage} from "./redux/store";
-//import {Product} from "./redux/types/addToCartTypes";
+import {loadFromLocalStorage} from "./redux/store";
+import {Product} from "./redux/types/addToCartTypes";
 
 function App() {
   const dispatch = useDispatch();
   const { query } = useSelector((state: rootState) => state.query);
-  const { products } = useSelector((state: rootState) => state.products);
+  //const { products } = useSelector((state: rootState) => state.products);
 
-  // const productObject = loadFromLocalStorage();
-  // const products:Product[] = productObject.products.products;
+  const productObject = loadFromLocalStorage();
+  const products:Product[] = productObject.products.products;
 
 
 
