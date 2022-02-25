@@ -20,10 +20,10 @@ export function Navbar() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
-  let {mood} = useSelector((state: rootState) => state.cart);
+  let {mood, cart} = useSelector((state: rootState) => state.cart);
 
-  const productObject = loadFromLocalStorage();
-  const cart = productObject.cart.cart
+  // const productObject = loadFromLocalStorage();
+  // const cart = productObject.cart.cart
  
   type Cart = {
     product: Product;
