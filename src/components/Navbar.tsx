@@ -13,7 +13,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { rootState } from "../redux/store";
 import { darkMood } from "../redux/actions/addToCartActions";
 import { Product } from "../redux/types/addToCartTypes";
-//import { loadFromLocalStorage } from "../redux/store";
 
 export function Navbar() {
   const [sidebar, setSidebar] = useState<boolean>(false);
@@ -21,9 +20,6 @@ export function Navbar() {
   const dispatch = useDispatch();
 
   let {mood, cart} = useSelector((state: rootState) => state.cart);
-
-  // const productObject = loadFromLocalStorage();
-  // const cart = productObject.cart.cart
  
   type Cart = {
     product: Product;

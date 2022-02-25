@@ -11,22 +11,16 @@ import { Checkout } from "./pages/Checkout";
 import { Categories } from "./pages/Categories";
 import { Faq } from "./pages/Faq";
 import { Contact } from "./pages/Contact";
-import {loadFromLocalStorage} from "./redux/store";
-import {Product} from "./redux/types/addToCartTypes";
+import {persistedState} from "./redux/store"
 
 function App() {
  const dispatch = useDispatch();
   const { query } = useSelector((state: rootState) => state.query);
-
-  const productObject = loadFromLocalStorage();
-  const products:Product[] = productObject.products.products;
-  
-
+  const { products } = useSelector((state: rootState) => state.products);
 
 
   useEffect(() => {
    dispatch(fetchApiAction());
-   loadFromLocalStorage();
   }, [dispatch]);
 
   function searching() {
@@ -36,6 +30,8 @@ function App() {
     return result;
   }
 
+  console.log(persistedState);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -43,7 +39,7 @@ function App() {
           <Route path="/" element={<Home products={searching()} />} />
           <Route
             path="/details/:productId"
-            element={<Details/>}
+            element={<Details products={products}/>}
           />
           <Route path="/cart" element={<Cart />} />
           <Route

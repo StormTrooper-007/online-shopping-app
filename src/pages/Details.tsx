@@ -14,10 +14,13 @@ import {
   subQty
 } from "../redux/actions/addToCartActions";
 import {convertEur} from "../functions/currency";
-import { loadFromLocalStorage } from "../redux/store";
+
+type Props={
+  products:Product[]
+}
 
 
-export function Details() {
+export function Details({products}:Props) {
   function getDetails(number: number): any {
     let result: any = {};
     for (let i = 0; i < products.length; i++) {
@@ -28,8 +31,6 @@ export function Details() {
     return result;
   }
 
-  const productObject = loadFromLocalStorage();
-  const products:Product[] = productObject.products.products;
 
   let params = useParams<string>();
   let navigate = useNavigate();
