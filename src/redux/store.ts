@@ -22,11 +22,6 @@ function saveToLocalStorage(state: rootState) {
     console.log(e);
   }
 }
-
-type products = {
-
-
-}
  
 
   function loadFromLocalStorage() {
