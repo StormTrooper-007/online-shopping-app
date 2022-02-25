@@ -36,6 +36,15 @@ export function Navbar() {
     dispatch(darkMood());
   }
 
+
+  function totalProducts():number{
+    let total:number=0;
+    for(let i=0; i < newCart.length; ++i){
+      total += newCart[i].qty;
+    }
+    return total;
+  }
+
   return (
     <>
       <nav>
@@ -55,7 +64,7 @@ export function Navbar() {
           <div className="nav__cart" onClick={() => navigate("/cart")}>
             <LocalMallOutlinedIcon />{" "}
             <div className={mood ? `nav__cart__badge` : `nav__cart__badgeD`}>
-              {newCart.length}
+              {totalProducts()}
             </div>
           </div>
           <div className="nav__toggle">

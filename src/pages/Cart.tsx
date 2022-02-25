@@ -23,7 +23,7 @@ export function Cart() {
 
   let newCart: Cart[] = cart;
 
-  function totalProducts():number{
+    function totalProducts():number{
     let total:number=0;
     for(let i=0; i < newCart.length; ++i){
       total += newCart[i].qty;

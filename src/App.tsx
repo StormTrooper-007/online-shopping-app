@@ -15,7 +15,7 @@ import {loadFromLocalStorage} from "./redux/store";
 import {Product} from "./redux/types/addToCartTypes";
 
 function App() {
-  const dispatch = useDispatch();
+ const dispatch = useDispatch();
   const { query } = useSelector((state: rootState) => state.query);
 
   const productObject = loadFromLocalStorage();
@@ -25,8 +25,9 @@ function App() {
 
 
   useEffect(() => {
-    loadFromLocalStorage()
-  }, []);
+   dispatch(fetchApiAction());
+   loadFromLocalStorage();
+  }, [dispatch, loadFromLocalStorage]);
 
   function searching() {
     let result = products.filter((element) =>
