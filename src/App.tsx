@@ -43,7 +43,7 @@ function App() {
           <Route path="/" element={<Home products={searching()} />} />
           <Route
             path="/details/:productId"
-            element={<Details products={products} />}
+            element={<Details/>}
           />
           <Route path="/cart" element={<Cart />} />
           <Route
