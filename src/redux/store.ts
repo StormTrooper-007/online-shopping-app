@@ -4,6 +4,7 @@ import addToCartReducer from "./reducers/addToCartReducer";
 import fetchApireducer from "./reducers/fetchApiReducer";
 import queryReducer from "./reducers/queryReducer";
 
+
 export const composeEnhancer =
   (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
@@ -21,7 +22,7 @@ function saveToLocalStorage(state: rootState) {
     console.log(e);
   }
 }
- 
+
 
   function loadFromLocalStorage() {
   const localStorageState = localStorage.getItem("state");

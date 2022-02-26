@@ -28,7 +28,7 @@ function addToCartReducer(
       const item = action.payload;
       const existItem = state.cart.find(
         (i) => i.product.title === item.product.title
-      );
+      )
       if (existItem) {
         return {
           ...state,
@@ -68,6 +68,12 @@ function addToCartReducer(
         ...state,
         qty: (state.qty = 0),
       };
+      case Cart_ActionType.CLEAR_CART: 
+      console.log(state.cart)
+      return {
+        ...state,
+        cart:[]
+      }  
     default:
       return state;
   }

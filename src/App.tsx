@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { fetchApiAction } from "./redux/actions/fetchApiAction";
 import { useDispatch, useSelector } from "react-redux";
 import { rootState } from "./redux/store";
@@ -11,16 +11,16 @@ import { Checkout } from "./pages/Checkout";
 import { Categories } from "./pages/Categories";
 import { Faq } from "./pages/Faq";
 import { Contact } from "./pages/Contact";
-import {persistedState} from "./redux/store"
+import {NoExistPage} from "./pages/NoExistPage";
+
 
 function App() {
- const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { query } = useSelector((state: rootState) => state.query);
   const { products } = useSelector((state: rootState) => state.products);
 
-
   useEffect(() => {
-   dispatch(fetchApiAction());
+    dispatch(fetchApiAction());
   }, [dispatch]);
 
   function searching() {
@@ -30,7 +30,7 @@ function App() {
     return result;
   }
 
-  console.log(persistedState);
+  
 
   return (
     <BrowserRouter>
@@ -39,7 +39,7 @@ function App() {
           <Route path="/" element={<Home products={searching()} />} />
           <Route
             path="/details/:productId"
-            element={<Details products={products}/>}
+            element={<Details products={products} />}
           />
           <Route path="/cart" element={<Cart />} />
           <Route
@@ -48,12 +48,12 @@ function App() {
           />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/faq" element={<Faq />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Contact/>} />
         </Route>
+        <Route path="*" element={<NoExistPage/>}/>
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
-

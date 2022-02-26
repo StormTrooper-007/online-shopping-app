@@ -39,3 +39,9 @@ export function resetQty() {
     type: Cart_ActionType.RESET_QTY,
   };
 }
+
+export function clearCart() {
+  return {
+    type: Cart_ActionType.CLEAR_CART,
+  };
+}

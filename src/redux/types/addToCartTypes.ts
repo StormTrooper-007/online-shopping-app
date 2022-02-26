@@ -22,7 +22,7 @@ export type Product = {
       ADD_QTY = "ADD_QTY",
       SUB_QTY = "SUB_QTY",
       RESET_QTY = "RESET_QTY",
-    }
+      CLEAR_CART = "CLEAR_CART"}
     
     export type Add_To_Cart = {
       type: Cart_ActionType.ADD_TO_CART;
@@ -49,6 +49,12 @@ export type Product = {
     export type ResetQty = {
       type: Cart_ActionType.RESET_QTY;
     };
+
+    export type ClearCart = {
+      type: Cart_ActionType.CLEAR_CART;
+    };
+
+
     
     export type AddToCartAction =
       | Add_To_Cart
@@ -56,4 +62,5 @@ export type Product = {
       | DarkMood
       | AddQty
       | SubQty
-      | ResetQty;
+      | ResetQty
+      | ClearCart;

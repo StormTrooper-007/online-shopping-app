@@ -11,7 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
   addQty,
-  subQty
+  subQty,
+  resetQty
 } from "../redux/actions/addToCartActions";
 import {convertEur} from "../functions/currency";
 
@@ -69,6 +70,7 @@ export function Details({products}:Props) {
               }
               disabled={qty === 1 ? true : false}
               onClick={() => dispatch(subQty())}
+              onDoubleClick={() => dispatch(resetQty())}
             >
               {" "}
               <RemoveIcon />{" "}
@@ -83,6 +85,7 @@ export function Details({products}:Props) {
               {" "}
               <AddIcon />{" "}
             </button>
+            <h6 style={{position:"relative", top:"25px", right:"200px"}}>double click to reset qty</h6>
           </div>
         </div>
         <button
