@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { fetchApiAction } from "./redux/actions/fetchApiAction";
 import { useDispatch, useSelector } from "react-redux";
 import { rootState } from "./redux/store";
