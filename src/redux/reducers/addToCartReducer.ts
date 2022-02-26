@@ -66,7 +66,7 @@ function addToCartReducer(
     case Cart_ActionType.RESET_QTY:
       return {
         ...state,
-        qty: (state.qty = 0),
+        qty: (state.qty = 1),
       };
       case Cart_ActionType.CLEAR_CART: 
       console.log(state.cart)
