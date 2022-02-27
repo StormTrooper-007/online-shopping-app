@@ -23,13 +23,9 @@ export function Categories({ products }: Props) {
   const navigate = useNavigate();
   const { mood } = useSelector((state: rootState) => state.cart);
 
-
   return (
     <>
-      {Object.entries(productItems).map(
-        ([category, productItems], index: number) => (
-          <div key={index}>
-            <div>
+      <div>
               <button
                 className={mood ? `cart__button` : `cart__buttonD`}
                 onClick={() => navigate("/")}
@@ -37,22 +33,27 @@ export function Categories({ products }: Props) {
                 back home
               </button>
             </div>
-            <h1>{category.toLocaleUpperCase()}</h1>
-            {productItems.map((item: Product) => (
-              <div className={mood ? `card` : `cardD`} key={item.title}>
-                <img className="card__image" src={item.image} alt="product" />
-                <div className="card__content">
-                  <h2>{item.title}</h2>
-                  <button
-                    className={mood ? `cart__button` : `cart__buttonD`}
-                    onClick={() => navigate(`/details/${item.title}`)}
-                  >
-                    view item
-                  </button>
+      {Object.entries(productItems).map(
+        ([category, productItems], index: number) => (
+          <>
+            <div key={index}>
+              <h1>{category.toLocaleUpperCase()}</h1>
+              {productItems.map((item: Product) => (
+                <div className={mood ? `card` : `cardD`} key={item.title}>
+                  <img className="card__image" src={item.image} alt="product" />
+                  <div className="card__content">
+                    <h2>{item.title}</h2>
+                    <button
+                      className={mood ? `cart__button` : `cart__buttonD`}
+                      onClick={() => navigate(`/details/${item.title}`)}
+                    >
+                      view item
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </>
         )
       )}
     </>
