@@ -2,7 +2,7 @@ import { SidebarActionType } from "../types/sideBarSwitchType";
 import { SideBarSwitchAction } from "../types/sideBarSwitchType";
 
 const initialState = {
-      sidebar:false
+      sidebar:true
 }
 
 type InitialState = {
