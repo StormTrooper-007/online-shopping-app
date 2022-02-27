@@ -13,8 +13,9 @@ export function Home({ products }: Props) {
   const navigate = useNavigate();
   let { mood } = useSelector((state: rootState) => state.cart);
 
+
   return (
-    <>
+      <>
       {products.map((item, index: number) => (
         <div className={mood ? `card` : `cardD`} key={item.id}>
           <img className="card__image" src={item.image} alt="product" />
@@ -30,6 +31,7 @@ export function Home({ products }: Props) {
           </div>
         </div>
       ))}
-    </>
-  );
-}
+      </>
+)}
+    
+

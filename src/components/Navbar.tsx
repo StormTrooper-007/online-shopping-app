@@ -5,22 +5,20 @@ import { Input } from "../components/Input";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { MaterialUISwitch } from "./MaterialUISwitch";
-import { SideBar } from "../components/Sidebar";
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { rootState } from "../redux/store";
 import { darkMood } from "../redux/actions/addToCartActions";
+import { sideBar } from "../redux/actions/sideBarActions";
 import { Product } from "../redux/types/addToCartTypes";
 
 export function Navbar() {
-  const [sidebar, setSidebar] = useState<boolean>(false);
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
   let {mood, cart} = useSelector((state: rootState) => state.cart);
- 
+
   type Cart = {
     product: Product;
     qty: number;
@@ -31,7 +29,6 @@ export function Navbar() {
   function handleChange(): void {
     dispatch(darkMood());
   }
-
 
   function totalProducts():number{
     let total:number=0;
@@ -46,16 +43,13 @@ export function Navbar() {
       <nav>
         <div
           className="nav__icon"
-          onClick={() => {
-            setSidebar(!sidebar);
-          }}
+          onClick={() => dispatch(sideBar())}
         >
-          <AppsRoundedIcon />
+          <AppsRoundedIcon/>
         </div>
         <div>
-          <Input />
+          <Input/>
         </div>
-
         <div className="nav__cart__toggle">
           <div className="nav__cart" onClick={() => navigate("/cart")}>
             <LocalMallOutlinedIcon />{" "}
@@ -79,7 +73,6 @@ export function Navbar() {
           </div>
         </div>
       </nav>
-      {sidebar ? <SideBar sidebar={sidebar} setSidebar={setSidebar} /> : null}
       <Outlet />
     </>
   );

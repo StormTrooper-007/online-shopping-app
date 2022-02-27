@@ -11,6 +11,7 @@ import { deleteItem, clearCart } from "../redux/actions/addToCartActions";
 export function Cart() {
   const dispatch = useDispatch();
   let {mood, cart} = useSelector((state: rootState) => state.cart);
+  
   const navigate = useNavigate();
 
   type Cart = {

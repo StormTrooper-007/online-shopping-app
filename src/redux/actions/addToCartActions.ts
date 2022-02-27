@@ -2,7 +2,6 @@ import { Product } from "../types/addToCartTypes";
 import { Cart_ActionType } from "../types/addToCartTypes";
 
 export function addToCart(product: Product, qty: number) {
-  console.log(product);
   return {
     type: Cart_ActionType.ADD_TO_CART,
     payload: { product, qty },

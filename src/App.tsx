@@ -12,12 +12,14 @@ import { Categories } from "./pages/Categories";
 import { Faq } from "./pages/Faq";
 import { Contact } from "./pages/Contact";
 import {NoExistPage} from "./pages/NoExistPage";
+import {SideBar} from "./components/Sidebar";
 
 
 function App() {
   const dispatch = useDispatch();
   const { query } = useSelector((state: rootState) => state.query);
   const { products } = useSelector((state: rootState) => state.products);
+  let {sidebar} = useSelector((state: rootState) => state.sidebar);
 
   useEffect(() => {
     dispatch(fetchApiAction());
@@ -35,20 +37,20 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navbar />}>
-          <Route path="/" element={<Home products={searching()} />} />
+        <Route path="/" element={<Navbar/>}>
+          <Route path="/" element={!sidebar ? <SideBar/>:<Home products={searching()} />} />
           <Route
             path="/details/:productId"
-            element={<Details products={products} />}
+            element={!sidebar ? <SideBar/>:<Details products={products} />}
           />
           <Route path="/cart" element={<Cart />} />
           <Route
             path="/categories"
-            element={<Categories products={searching()} />}
+            element={!sidebar ? <SideBar/>:<Categories products={searching()} />}
           />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/contact" element={<Contact/>} />
+          <Route path="/checkout" element={!sidebar ? <SideBar/>:<Checkout />} />
+          <Route path="/faq" element={!sidebar ? <SideBar/>:<Faq />} />
+          <Route path="/contact" element={!sidebar ? <SideBar/>:<Contact/>} />
         </Route>
         <Route path="*" element={<NoExistPage/>}/>
       </Routes>

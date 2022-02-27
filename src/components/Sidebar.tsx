@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { sideBar } from "../redux/actions/sideBarActions";
 import { rootState } from "../redux/store";
 import { Link } from "react-router-dom";
 import "../sass/SideBar.scss";
@@ -8,17 +8,10 @@ function SideBarShadow() {
   return <div className="shadow"></div>;
 }
 
-type Props = {
-  sidebar: boolean;
-  setSidebar: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-export function SideBar({ sidebar, setSidebar }: Props) {
-  function close() {
-    setSidebar(!sidebar);
-  }
+export function SideBar() {
 
   const { mood } = useSelector((state: rootState) => state.cart);
+  const dispatch = useDispatch();
 
   const linkStyle = {
     color: "black",
@@ -31,6 +24,12 @@ export function SideBar({ sidebar, setSidebar }: Props) {
     cursor: "pointer",
   };
 
+  
+  function close(){
+    dispatch(sideBar());
+  }
+ 
+
   return (
     <div>
       <div
@@ -39,11 +38,11 @@ export function SideBar({ sidebar, setSidebar }: Props) {
       >
         <ul className={mood ? `sidebar__list` : `sidebar__listD`}>
           <li>
-            <Link to="/" style={mood ? linkStyle : linkStyleD}>
+          <Link to="/" style={mood ? linkStyle : linkStyleD}>
               HOME
             </Link>
           </li>
-          <li>
+          <li >
             <Link to="/categories" style={mood ? linkStyle : linkStyleD}>
               CATEGORIES
             </Link>
@@ -60,7 +59,7 @@ export function SideBar({ sidebar, setSidebar }: Props) {
           </li>
         </ul>
       </div>
-      <SideBarShadow />
+      <SideBarShadow/>
     </div>
   );
 }

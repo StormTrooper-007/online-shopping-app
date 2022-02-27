@@ -23,7 +23,6 @@ export function Categories({ products }: Props) {
   const navigate = useNavigate();
   const { mood } = useSelector((state: rootState) => state.cart);
 
-  console.log(productItems);
 
   return (
     <>

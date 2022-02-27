@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import addToCartReducer from "./reducers/addToCartReducer";
 import fetchApireducer from "./reducers/fetchApiReducer";
 import queryReducer from "./reducers/queryReducer";
+import sideBarReducer from "./reducers/sideBarReducer";
 
 
 export const composeEnhancer =
@@ -12,6 +13,7 @@ const reducers = combineReducers({
   products: fetchApireducer,
   cart: addToCartReducer,
   query: queryReducer,
+  sidebar:sideBarReducer
 });
 
 function saveToLocalStorage(state: rootState) {
