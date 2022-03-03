@@ -32,6 +32,7 @@ export function SideBar() {
 
   return (
     <div>
+       
       <div
         className={mood ? `sidebar__container` : `sidebar__containerD`}
         onClick={close}
@@ -60,6 +61,7 @@ export function SideBar() {
         </ul>
       </div>
       <SideBarShadow/>
+    
     </div>
   );
 }

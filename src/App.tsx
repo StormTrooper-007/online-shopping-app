@@ -43,7 +43,7 @@ function App() {
             path="/details/:productId"
             element={!sidebar ? <SideBar/>:<Details products={products} />}
           />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={!sidebar ? <SideBar/>:<Cart />} />
           <Route
             path="/categories"
             element={!sidebar ? <SideBar/>:<Categories products={searching()} />}

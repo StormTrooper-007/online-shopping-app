@@ -20,13 +20,13 @@
     
     .empty__cart__message {
       display: flex;
+      justify-content: center;
       align-items: center;
-      min-width: 100%;
+      min-width: 50px;
+      height: 50px;
       background-color: #00fa9a;
       color: #033803;
       border-radius: 10px;
-      padding: 10px;
-      padding-left: 270px;
       @include mobile(400px){
         padding-left: 150px;
       }
