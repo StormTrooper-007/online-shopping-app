@@ -61,7 +61,6 @@ export function SideBar() {
         </ul>
       </div>
       <SideBarShadow/>
-    
     </div>
   );
 }
